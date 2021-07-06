@@ -101,7 +101,7 @@
         <!--Home Feed-->
         <scene sceneID="obT-oU-7wj">
             <objects>
-                <viewController id="vp0-z1-D15" customClass="FeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="vp0-z1-D15" customClass="FeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5tL-25-Imn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,7 +172,7 @@
         <!--Item 1-->
         <scene sceneID="lB3-kd-r21">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CYj-0Q-Y0M" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CYj-0Q-Y0M" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 1" id="H5P-WK-4Za"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JiB-PW-8k9">
