@@ -6,6 +6,7 @@
 //
 
 #import "ComposeViewController.h"
+#import "Post.h"
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -57,6 +58,19 @@
 //    self.photoButton.userInteractionEnabled = NO;
 }
 
+- (IBAction)onTapShare:(id)sender {
+    [Post postUserImage:self.imageView.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            NSLog(@"Error posting image", error.localizedDescription);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            NSLog(@"Successfully posted image!");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+}
+
+
 - (IBAction)onTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
     //self.photoButton.hidden = NO;
@@ -70,11 +84,28 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    // Set the image view to the selected image
+    // Set the image view to the selected image (resized?)
+    CGSize size = CGSizeMake(500, 500);
+    self.imageView.image = [self resizeImage:editedImage withSize:size];
     self.imageView.image = editedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Resize each photo before uploading to Parse (Parse has a limit of 10MB per file)
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 // Clear placeholder text when user begins editing the caption box
