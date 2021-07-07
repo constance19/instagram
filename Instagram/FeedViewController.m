@@ -47,6 +47,17 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    // Pull to refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor blackColor]];
+    [refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    // Get timeline
+    [self loadPosts];
+}
+
+- (void) loadPosts {
     // construct PFQuery
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
@@ -64,6 +75,7 @@
             // handle error
         }
     }];
+    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,10 +86,11 @@
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
 
     Post *post = self.arrayOfPosts[indexPath.row];
+    cell.post = post;
     cell.captionLabel.text = post.caption;
-    cell.imageView.file = post.image;
+//    cell.imageView.file = post.image;
 
-    PFUser *user = post[@"user"];
+    PFUser *user = post[@"author"];
     if (user != nil) {
         // User found! update username label with username
         cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.username];
@@ -99,6 +112,34 @@
 {
     return UITableViewAutomaticDimension;
 }
+
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
+//- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+//
+//      // Create NSURL and NSURLRequest
+//
+//      NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+//                                                            delegate:nil
+//                                                       delegateQueue:[NSOperationQueue mainQueue]];
+//      session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+//  
+//      NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+//                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//  
+//         // ... Use the new data to update the data source ...
+//
+//         // Reload the tableView now that there is new data
+//          [self.tableView reloadData];
+//
+//         // Tell the refreshControl to stop spinning
+//          [refreshControl endRefreshing];
+//
+//      }];
+//  
+//      [task resume];
+//}
 
 /*
 #pragma mark - Navigation
