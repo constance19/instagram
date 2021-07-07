@@ -51,7 +51,7 @@
     // Pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl setTintColor:[UIColor blackColor]];
-    [refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
     
     // Get timeline
@@ -76,7 +76,6 @@
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
-    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -117,30 +116,10 @@
 // Makes a network request to get updated data
 // Updates the tableView with the new data
 // Hides the RefreshControl
-//- (void)beginRefresh:(UIRefreshControl *)refreshControl {
-//
-//      // Create NSURL and NSURLRequest
-//
-//      NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-//                                                            delegate:nil
-//                                                       delegateQueue:[NSOperationQueue mainQueue]];
-//      session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-//  
-//      NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-//                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//  
-//         // ... Use the new data to update the data source ...
-//
-//         // Reload the tableView now that there is new data
-//          [self.tableView reloadData];
-//
-//         // Tell the refreshControl to stop spinning
-//          [refreshControl endRefreshing];
-//
-//      }];
-//  
-//      [task resume];
-//}
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self loadPosts];
+    [refreshControl endRefreshing];
+}
 
 #pragma mark - Navigation
 
