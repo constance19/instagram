@@ -10,10 +10,11 @@
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
 #import "PostCell.h"
+#import "DetailsViewController.h"
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *arrayOfPosts;
+@property (nonatomic, strong) NSArray *arrayOfPosts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -72,7 +73,7 @@
             [self.tableView reloadData];
         }
         else {
-            // handle error
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
     [self.refreshControl endRefreshing];
@@ -141,14 +142,23 @@
 //      [task resume];
 //}
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    // For details view segue
+    if ([[segue identifier] isEqualToString:@"detailViewSegue"]) {
+        // Get the Post associated with the cell to bring to the details view
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.arrayOfPosts[indexPath.row];
+            
+        DetailsViewController *detailController = [segue destinationViewController];
+        detailController.post = post;
+    }
 }
-*/
 
 @end
