@@ -47,7 +47,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+        
     // Pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl setTintColor:[UIColor blackColor]];

@@ -85,7 +85,7 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Set the image view to the selected image (resized?)
-    CGSize size = CGSizeMake(500, 500);
+    CGSize size = CGSizeMake(300, 300);
     self.imageView.image = [self resizeImage:editedImage withSize:size];
     self.imageView.image = editedImage;
     
