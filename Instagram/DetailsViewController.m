@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "DateTools.h"
 @import Parse;
 
 @interface DetailsViewController ()
@@ -33,6 +34,11 @@
     }
     
     // set timestamp label
+    // Format and set createdAtString
+    NSDate *createdAt = self.post.createdAt;
+    // Convert Date to String using DateTool relative time
+    self.timestampLabel.text = createdAt.shortTimeAgoSinceNow;
+//    self.timestampLabel.text = stringFromDate;
     
     // set post image
     self.imageView.file = self.post.image;
@@ -40,7 +46,6 @@
     
     // set caption label
     self.captionLabel.text = self.post.caption;
-    
 }
 
 /*
