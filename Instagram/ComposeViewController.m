@@ -1,0 +1,110 @@
+//
+//  ComposeViewController.m
+//  Instagram
+//
+//  Created by constanceh on 7/6/21.
+//
+
+#import "ComposeViewController.h"
+
+@interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+
+@end
+
+@implementation ComposeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    // Set caption box display
+    self.textView.layer.borderWidth = 1.6f;
+    self.textView.clipsToBounds = YES;
+    self.textView.layer.cornerRadius = 8.0f;
+    self.textView.layer.borderColor = UIColor.lightGrayColor.CGColor;
+    
+    // Set placeholder text for caption view
+    self.textView.delegate = self;
+    self.textView.text = @"Write a caption...";
+    self.textView.textColor = [UIColor lightGrayColor];
+    
+    // Set button display
+    [self.photoButton setFrame:CGRectMake(173, 269, 130, 44)];
+}
+
+- (IBAction)onTapPhoto:(id)sender {
+    // Instantiate a UIImagePickerController
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+
+    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    self.photoButton.hidden = YES;
+//    self.photoButton.userInteractionEnabled = NO;
+}
+
+- (IBAction)onTapCancel:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+    //self.photoButton.hidden = NO;
+    self.photoButton.userInteractionEnabled = YES;
+}
+
+// Delegate method
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Set the image view to the selected image
+    self.imageView.image = editedImage;
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Clear placeholder text when user begins editing the caption box
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Write a caption..."]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [textView becomeFirstResponder];
+}
+
+// Set placeholder text if caption box is empty
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Write a caption...";
+        textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
