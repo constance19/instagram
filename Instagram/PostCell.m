@@ -11,8 +11,8 @@
 
 - (void)setPost:(Post *)post {
     _post = post;
-    self.imageView.file = post[@"image"];
-    [self.imageView loadInBackground];
+    self.postImage.file = post[@"image"];
+    [self.postImage loadInBackground];
 }
 
 - (void)awakeFromNib {

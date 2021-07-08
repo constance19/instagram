@@ -12,9 +12,9 @@
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
-@property (weak, nonatomic) IBOutlet PFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet PFImageView *postImage;
 
 @end
 
@@ -41,8 +41,8 @@
     self.timestampLabel.text = createdAt.shortTimeAgoSinceNow;
     
     // set post image
-    self.imageView.file = self.post.image;
-    [self.imageView loadInBackground];
+    self.postImage.file = self.post.image;
+    [self.postImage loadInBackground];
     
     // set caption label
     self.captionLabel.text = self.post.caption;

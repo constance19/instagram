@@ -196,7 +196,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="aeu-LC-g9o" id="nmx-fv-3q4"/>
-                                            <outlet property="imageView" destination="Foq-Ry-ERC" id="jFz-c7-mbU"/>
+                                            <outlet property="postImage" destination="Foq-Ry-ERC" id="fd2-D9-mjm"/>
                                             <outlet property="timestampLabel" destination="FDJ-me-9mX" id="Zdz-Uh-is4"/>
                                             <outlet property="usernameLabel" destination="MYw-gm-B5D" id="MOQ-VY-yIW"/>
                                             <segue destination="wsx-ef-ZSL" kind="show" identifier="detailViewSegue" id="Clc-rW-Nct"/>
@@ -375,8 +375,8 @@
                     <navigationItem key="navigationItem" id="Xoi-2G-lpD"/>
                     <connections>
                         <outlet property="captionLabel" destination="QSM-xv-lmO" id="FAZ-hF-RWs"/>
-                        <outlet property="imageView" destination="dRK-7v-xVZ" id="vGS-Jk-apy"/>
                         <outlet property="likeButton" destination="fh4-Op-ILq" id="QJE-U6-4tJ"/>
+                        <outlet property="postImage" destination="dRK-7v-xVZ" id="Z2T-wZ-bUW"/>
                         <outlet property="timestampLabel" destination="Ucz-L5-Dfc" id="CF5-kd-kxY"/>
                         <outlet property="usernameLabel" destination="FhO-zc-Mlx" id="VyT-5l-cX9"/>
                     </connections>
