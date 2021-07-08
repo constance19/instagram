@@ -195,14 +195,18 @@
                                                         <constraint firstAttribute="height" constant="414" id="nDt-J0-eie"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-gm-B5D">
-                                                    <rect key="frame" x="14" y="14" width="90.5" height="21"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-gm-B5D">
+                                                    <rect key="frame" x="14" y="14" width="94.5" height="21"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="hE9-GY-1Je"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="IFe-Rd-SN7" appends="YES" id="lit-X9-OOZ"/>
+                                                    </connections>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-LC-g9o">
                                                     <rect key="frame" x="14" y="468" width="392" height="15"/>
@@ -270,6 +274,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fb7-AP-1jC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IFe-Rd-SN7">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" id="k0I-CO-rYT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2877" y="-225"/>
         </scene>
@@ -505,6 +514,9 @@
             <point key="canvasLocation" x="4022" y="-692"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="k0I-CO-rYT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1280px-Instagram_logo.svg" width="1280" height="457"/>
         <image name="favor-icon" width="30" height="30"/>
