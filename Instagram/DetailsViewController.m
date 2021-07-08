@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@", @"HERE!");
     // Do any additional setup after loading the view.
     
     // Set username label
@@ -50,13 +51,19 @@
     // set like count
     NSString *likeCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
     [self.likeButton setTitle:likeCount forState:UIControlStateNormal];
+    NSLog(@"%@", self.post.liked);
+    if (self.post.liked == @1) {
+        [self.likeButton setSelected:YES];
+    } else {
+        [self.likeButton setSelected:NO];
+    }
 }
 
 - (IBAction)onTapLike:(id)sender {
     // Unfavorite
         if (self.likeButton.isSelected) {
             // Update the local post model
-//            self.post.liked = FALSE;
+            self.post.liked = @0;
             
             int value = [self.post.likeCount intValue];
             self.post.likeCount = [NSNumber numberWithInt:value - 1];
@@ -69,7 +76,7 @@
         // Favorite
         } else {
             // Update the local tweet model
-//            self.post.liked = TRUE;
+            self.post.liked = @1;
             int value = [self.post.likeCount intValue];
             self.post.likeCount = [NSNumber numberWithInt:value + 1];
 

@@ -66,6 +66,7 @@
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
+    [postQuery includeKey:@"liked"];
     postQuery.limit = numPosts;
 
     // fetch data asynchronously

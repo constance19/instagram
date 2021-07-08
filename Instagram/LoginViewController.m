@@ -7,6 +7,7 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "ProfileViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -151,6 +152,13 @@
         }
     }];
 }
+
+//- (void)passDataForward
+//{
+//    ProfileViewController *profilePage = [[ProfileViewController alloc] initWithNib:@"profilePage" bundle:nil];
+//    profilePage.username = self.usernameField.text;
+////    [self pushViewController:viewControllerB animated:YES];
+//}
 
 /*
 #pragma mark - Navigation

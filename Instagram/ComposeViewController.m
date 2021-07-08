@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
@@ -64,7 +64,7 @@
     // Display HUD right before the request is made
     [MBProgressHUD showHUDAddedTo:self.view animated:TRUE];
     
-    [Post postUserImage:self.imageView.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError *error) {
+    [Post postUserImage:self.postImage.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error posting image", error.localizedDescription);
             [MBProgressHUD hideHUDForView:self.view animated:TRUE];
@@ -95,8 +95,8 @@
 
     // Set the image view to the selected image (resized?)
     CGSize size = CGSizeMake(300, 300);
-    self.imageView.image = [self resizeImage:editedImage withSize:size];
-    self.imageView.image = editedImage;
+    self.postImage.image = [self resizeImage:editedImage withSize:size];
+    self.postImage.image = editedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
