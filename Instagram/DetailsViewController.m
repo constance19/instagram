@@ -54,9 +54,9 @@
 
 - (IBAction)onTapLike:(id)sender {
     // Unfavorite
-        if (self.post.liked) {
-            // Update the local tweet model
-            self.post.liked = FALSE;
+        if (self.likeButton.isSelected) {
+            // Update the local post model
+//            self.post.liked = FALSE;
             
             int value = [self.post.likeCount intValue];
             self.post.likeCount = [NSNumber numberWithInt:value - 1];
@@ -69,7 +69,7 @@
         // Favorite
         } else {
             // Update the local tweet model
-            self.post.liked = TRUE;
+//            self.post.liked = TRUE;
             int value = [self.post.likeCount intValue];
             self.post.likeCount = [NSNumber numberWithInt:value + 1];
 

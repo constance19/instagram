@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSArray *arrayOfPosts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (nonatomic) BOOL doneLoading;
 
 @end
 
@@ -57,15 +58,15 @@
     [self.tableView insertSubview:refreshControl atIndex:0];
     
     // Get timeline
-    [self loadPosts];
+    [self loadPosts:20];
 }
 
-- (void) loadPosts {
+- (void) loadPosts: (int) numPosts {
     // construct PFQuery
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    postQuery.limit = numPosts;
 
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
@@ -107,9 +108,14 @@
             // No user found, set default username
         cell.usernameLabel.text = @"@Default_Name";
     }
-
-
     return cell;
+}
+
+// For infinite scrolling
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row + 1 == [self.arrayOfPosts count]){
+        [self loadPosts: (int)[self.arrayOfPosts count]+20];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,7 +132,7 @@
 // Updates the tableView with the new data
 // Hides the RefreshControl
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    [self loadPosts];
+    [self loadPosts:20];
     [refreshControl endRefreshing];
 }
 

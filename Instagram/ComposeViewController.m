@@ -7,6 +7,8 @@
 
 #import "ComposeViewController.h"
 #import "Post.h"
+#import "MBProgressHUD.h"
+#import <UIKit/UIKit.h>
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -59,13 +61,19 @@
 }
 
 - (IBAction)onTapShare:(id)sender {
+    // Display HUD right before the request is made
+    [MBProgressHUD showHUDAddedTo:self.view animated:TRUE];
+    
     [Post postUserImage:self.imageView.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error posting image", error.localizedDescription);
+            [MBProgressHUD hideHUDForView:self.view animated:TRUE];
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"Successfully posted image!");
 //            [self.delegate didPost:post];
+            // Hide HUD once the network request comes back (must be done on main UI thread)
+            [MBProgressHUD hideHUDForView:self.view animated:TRUE];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
