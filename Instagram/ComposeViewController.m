@@ -65,6 +65,7 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"Successfully posted image!");
+//            [self.delegate didPost:post];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];

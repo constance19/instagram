@@ -38,7 +38,6 @@
     NSDate *createdAt = self.post.createdAt;
     // Convert Date to String using DateTool relative time
     self.timestampLabel.text = createdAt.shortTimeAgoSinceNow;
-//    self.timestampLabel.text = stringFromDate;
     
     // set post image
     self.imageView.file = self.post.image;

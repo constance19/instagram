@@ -11,8 +11,10 @@
 #import "Parse/Parse.h"
 #import "PostCell.h"
 #import "DetailsViewController.h"
+#import "ComposeViewController.h"
+#import "DateTools.h"
 
-@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource> // ComposeViewControllerDelegate
 
 @property (nonatomic, strong) NSArray *arrayOfPosts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -85,9 +87,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
 
+    // Get and set the post
     Post *post = self.arrayOfPosts[indexPath.row];
     cell.post = post;
+    
+    // Set the caption
     cell.captionLabel.text = post.caption;
+    
+    // Format and set createdAtString, convert Date to String using DateTool relative time
+    NSDate *createdAt = post.createdAt;
+    cell.timestampLabel.text = createdAt.shortTimeAgoSinceNow;
 //    cell.imageView.file = post.image;
 
     PFUser *user = post[@"author"];
@@ -127,6 +136,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+//    // Set the FeedViewController as the delegate of the ComposeViewController
+//    UINavigationController *navigationController = [segue destinationViewController];
+//    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+//    composeController.delegate = self;
     
     // For details view segue
     if ([[segue identifier] isEqualToString:@"detailViewSegue"]) {

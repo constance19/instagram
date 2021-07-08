@@ -126,7 +126,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-gm-B5D">
-                                                    <rect key="frame" x="13" y="16" width="393" height="21"/>
+                                                    <rect key="frame" x="13" y="16" width="90.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="hE9-GY-1Je"/>
                                                     </constraints>
@@ -140,23 +140,33 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDJ-me-9mX">
+                                                    <rect key="frame" x="366" y="16" width="20" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="MYw-gm-B5D" secondAttribute="trailing" constant="8" id="0GV-bE-qvp"/>
                                                 <constraint firstAttribute="trailing" secondItem="Foq-Ry-ERC" secondAttribute="trailing" id="0jd-Xk-zCy"/>
+                                                <constraint firstItem="FDJ-me-9mX" firstAttribute="top" secondItem="MYw-gm-B5D" secondAttribute="top" id="0kd-gB-ZMC"/>
                                                 <constraint firstItem="MYw-gm-B5D" firstAttribute="leading" secondItem="xsM-MS-CCK" secondAttribute="leading" constant="13" id="7bw-4k-cAz"/>
                                                 <constraint firstItem="aeu-LC-g9o" firstAttribute="top" secondItem="Foq-Ry-ERC" secondAttribute="bottom" constant="11" id="8G2-2D-ams"/>
                                                 <constraint firstItem="Foq-Ry-ERC" firstAttribute="top" secondItem="MYw-gm-B5D" secondAttribute="bottom" constant="8" id="QJr-OR-imX"/>
                                                 <constraint firstItem="MYw-gm-B5D" firstAttribute="top" secondItem="xsM-MS-CCK" secondAttribute="top" constant="16" id="SGc-Mo-vwM"/>
                                                 <constraint firstAttribute="trailing" secondItem="aeu-LC-g9o" secondAttribute="trailing" constant="8" id="TSo-7D-gDN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FDJ-me-9mX" secondAttribute="trailing" constant="8" id="WBz-YH-WaB"/>
+                                                <constraint firstItem="FDJ-me-9mX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MYw-gm-B5D" secondAttribute="trailing" constant="30" id="dul-Bh-Vsx"/>
                                                 <constraint firstItem="Foq-Ry-ERC" firstAttribute="leading" secondItem="xsM-MS-CCK" secondAttribute="leading" id="gZr-XH-3J3"/>
                                                 <constraint firstItem="aeu-LC-g9o" firstAttribute="leading" secondItem="xsM-MS-CCK" secondAttribute="leading" constant="13" id="goG-rL-KLT"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aeu-LC-g9o" secondAttribute="bottom" constant="16" id="hvf-aI-Jcu"/>
+                                                <constraint firstItem="FDJ-me-9mX" firstAttribute="bottom" secondItem="MYw-gm-B5D" secondAttribute="bottom" id="tWP-Wu-jMw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="aeu-LC-g9o" id="nmx-fv-3q4"/>
                                             <outlet property="imageView" destination="Foq-Ry-ERC" id="jFz-c7-mbU"/>
+                                            <outlet property="timestampLabel" destination="FDJ-me-9mX" id="Zdz-Uh-is4"/>
                                             <outlet property="usernameLabel" destination="MYw-gm-B5D" id="MOQ-VY-yIW"/>
                                             <segue destination="wsx-ef-ZSL" kind="show" identifier="detailViewSegue" id="Clc-rW-Nct"/>
                                         </connections>
