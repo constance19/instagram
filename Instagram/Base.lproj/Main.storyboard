@@ -324,12 +324,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-xv-lmO">
-                                <rect key="frame" x="20" y="558" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucz-L5-Dfc">
                                 <rect key="frame" x="374" y="81" width="20" height="21"/>
                                 <constraints>
@@ -339,20 +333,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-Op-ILq">
+                                <rect key="frame" x="20" y="550" width="62" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="Like" image="favor-icon">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <state key="selected" image="favor-icon-red"/>
+                                <connections>
+                                    <action selector="onTapLike:" destination="wsx-ef-ZSL" eventType="touchUpInside" id="CJQ-TG-fI5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-xv-lmO">
+                                <rect key="frame" x="20" y="610" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aOY-A4-err"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="top" secondItem="fh4-Op-ILq" secondAttribute="bottom" constant="30" id="5cm-qL-qfu"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="trailing" secondItem="aOY-A4-err" secondAttribute="trailing" id="7Ep-lV-Jyn"/>
-                            <constraint firstItem="aOY-A4-err" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QSM-xv-lmO" secondAttribute="bottom" constant="24" id="7xf-Ep-BuB"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="leading" secondItem="aOY-A4-err" secondAttribute="leading" id="BCk-za-CEk"/>
-                            <constraint firstItem="aOY-A4-err" firstAttribute="trailing" secondItem="QSM-xv-lmO" secondAttribute="trailing" constant="20" id="O15-IE-RMZ"/>
+                            <constraint firstItem="aOY-A4-err" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fh4-Op-ILq" secondAttribute="trailing" constant="100" id="ORP-5B-ZZ6"/>
+                            <constraint firstItem="aOY-A4-err" firstAttribute="trailing" secondItem="QSM-xv-lmO" secondAttribute="trailing" constant="20" id="VKh-GH-Pvx"/>
                             <constraint firstItem="FhO-zc-Mlx" firstAttribute="top" secondItem="aOY-A4-err" secondAttribute="top" constant="25" id="YWr-zJ-cnM"/>
                             <constraint firstItem="FhO-zc-Mlx" firstAttribute="leading" secondItem="aOY-A4-err" secondAttribute="leading" constant="20" id="YdB-XC-X94"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="top" secondItem="FhO-zc-Mlx" secondAttribute="bottom" constant="18" id="b5I-j7-EaL"/>
-                            <constraint firstItem="QSM-xv-lmO" firstAttribute="top" secondItem="dRK-7v-xVZ" secondAttribute="bottom" constant="24" id="dXz-e7-Vhm"/>
-                            <constraint firstItem="QSM-xv-lmO" firstAttribute="leading" secondItem="FhO-zc-Mlx" secondAttribute="leading" id="fFI-Uy-Ai0"/>
+                            <constraint firstItem="aOY-A4-err" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QSM-xv-lmO" secondAttribute="bottom" constant="20" id="eJZ-YB-81s"/>
+                            <constraint firstItem="fh4-Op-ILq" firstAttribute="top" secondItem="dRK-7v-xVZ" secondAttribute="bottom" constant="16" id="gyp-MN-U2I"/>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="leading" secondItem="fh4-Op-ILq" secondAttribute="leading" id="hoz-Gx-PUN"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="top" secondItem="Ucz-L5-Dfc" secondAttribute="bottom" constant="18" id="i42-fe-23i"/>
+                            <constraint firstItem="fh4-Op-ILq" firstAttribute="leading" secondItem="FhO-zc-Mlx" secondAttribute="leading" id="jAm-rD-90T"/>
                             <constraint firstItem="aOY-A4-err" firstAttribute="trailing" secondItem="Ucz-L5-Dfc" secondAttribute="trailing" constant="20" id="xTa-2s-jS5"/>
                             <constraint firstItem="Ucz-L5-Dfc" firstAttribute="top" secondItem="aOY-A4-err" secondAttribute="top" constant="25" id="xqc-lw-Yub"/>
                             <constraint firstItem="Ucz-L5-Dfc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FhO-zc-Mlx" secondAttribute="trailing" constant="30" id="yvo-Pp-FKK"/>
@@ -362,6 +376,7 @@
                     <connections>
                         <outlet property="captionLabel" destination="QSM-xv-lmO" id="FAZ-hF-RWs"/>
                         <outlet property="imageView" destination="dRK-7v-xVZ" id="vGS-Jk-apy"/>
+                        <outlet property="likeButton" destination="fh4-Op-ILq" id="QJE-U6-4tJ"/>
                         <outlet property="timestampLabel" destination="Ucz-L5-Dfc" id="CF5-kd-kxY"/>
                         <outlet property="usernameLabel" destination="FhO-zc-Mlx" id="VyT-5l-cX9"/>
                     </connections>
@@ -447,6 +462,8 @@
     </scenes>
     <resources>
         <image name="1280px-Instagram_logo.svg" width="1280" height="457"/>
+        <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>

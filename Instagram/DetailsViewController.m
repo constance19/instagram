@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 @end
 
@@ -45,6 +46,38 @@
     
     // set caption label
     self.captionLabel.text = self.post.caption;
+    
+    // set like count
+    NSString *likeCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
+    [self.likeButton setTitle:likeCount forState:UIControlStateNormal];
+}
+
+- (IBAction)onTapLike:(id)sender {
+    // Unfavorite
+        if (self.post.liked) {
+            // Update the local tweet model
+            self.post.liked = FALSE;
+            
+            int value = [self.post.likeCount intValue];
+            self.post.likeCount = [NSNumber numberWithInt:value - 1];
+
+            // Update cell UI
+            NSString *favCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
+            [self.likeButton setTitle:favCount forState:UIControlStateNormal];
+            [self.likeButton setSelected:NO];
+
+        // Favorite
+        } else {
+            // Update the local tweet model
+            self.post.liked = TRUE;
+            int value = [self.post.likeCount intValue];
+            self.post.likeCount = [NSNumber numberWithInt:value + 1];
+
+            // Update cell UI
+            NSString *favCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
+            [self.likeButton setTitle:favCount forState:UIControlStateNormal];
+            [self.likeButton setSelected:YES];
+        }
 }
 
 /*
