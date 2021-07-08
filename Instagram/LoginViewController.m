@@ -21,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Round corners of login button
+    self.loginButton.layer.cornerRadius = 3.5;
+    self.loginButton.clipsToBounds = YES;
+    
+    // Set placeholder text of username and password text fields
+    self.usernameField.placeholder = @"Phone number, username, or email";
+    self.passwordField.placeholder = @"Password";
 }
 
 - (IBAction)onTapSignup:(id)sender {
