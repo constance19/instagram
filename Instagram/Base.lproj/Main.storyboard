@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlM-ky-int" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="1683"/>
+            <point key="canvasLocation" x="2877" y="1102"/>
         </scene>
         <!--Home Feed-->
         <scene sceneID="obT-oU-7wj">
@@ -232,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fb7-AP-1jC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.8550724637682" y="857.8125"/>
+            <point key="canvasLocation" x="2877" y="-225"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="K1Z-QO-mcY">
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a4-pN-PdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3744.9275362318845" y="857.8125"/>
+            <point key="canvasLocation" x="5046" y="-692"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="Tp2-0w-ZOs">
@@ -383,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Js1-e4-Fzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973.913043478261" y="85.714285714285708"/>
+            <point key="canvasLocation" x="4022" y="235"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0AN-Ds-O4N">
@@ -403,11 +403,11 @@
             </objects>
             <point key="canvasLocation" x="1057" y="86"/>
         </scene>
-        <!--Item 1-->
+        <!--Home Feed-->
         <scene sceneID="lB3-kd-r21">
             <objects>
                 <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CYj-0Q-Y0M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="H5P-WK-4Za"/>
+                    <tabBarItem key="tabBarItem" title="Home Feed" image="feed_tab" id="H5P-WK-4Za"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JiB-PW-8k9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -420,13 +420,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYb-Eb-2cc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="857.8125"/>
+            <point key="canvasLocation" x="1990" y="-225"/>
         </scene>
-        <!--Item 2-->
+        <!--Profile-->
         <scene sceneID="Te6-Hz-BZd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Apl-ep-p3V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Urn-CL-Put"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="Urn-CL-Put"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="q67-E3-3AS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -439,7 +439,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDa-y0-ImP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="1696"/>
+            <point key="canvasLocation" x="1990" y="1102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sc5-aq-s24">
@@ -457,16 +457,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1b-dg-PnV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="858"/>
+            <point key="canvasLocation" x="4022" y="-692"/>
         </scene>
     </scenes>
     <resources>
         <image name="1280px-Instagram_logo.svg" width="1280" height="457"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="favor-icon-red" width="30" height="30"/>
+        <image name="feed_tab" width="25" height="25"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="profile_tab" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
