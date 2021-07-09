@@ -58,7 +58,7 @@ Here's a walkthrough of implemented user stories:
 5. Profile tab, changing profile picture, various segues to profile page
 ![instax_profile](profile-tab-picture-links.gif) / ! [](profile-tab-picture-links.gif)
 
-6. Overview of core features (simplified due to file size constraints)
+6. Overview of core features shown in the 5 gifs above (simplified due to file size constraints)
 ![instax_profile](instax-overview-optimized.gif) / ! [](instax-overview-optimized.gif)
 
 GIF created with [EzGif](https://ezgif.com/video-to-gif).
