@@ -29,7 +29,20 @@
     // Profile tab (user's own page)
     } else {
         PFUser *user = [PFUser currentUser];
+        
+        // Set username label
         self.usernameLabel.text = [@"@" stringByAppendingString: user.username];
+        
+        // make profile image view circular
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+        self.profileImage.layer.masksToBounds = YES;
+        self.profileImage.layer.borderWidth = 0;
+        
+        // Set profile image
+        PFFileObject *profileImageFile = user[@"profileImage"];
+        NSURL *url = [NSURL URLWithString: profileImageFile.url];
+        NSData *fileData = [NSData dataWithContentsOfURL: url];
+        self.profileImage.image = [[UIImage alloc] initWithData:fileData];
     }
 }
 
@@ -62,6 +75,11 @@
     CGSize size = CGSizeMake(300, 300);
     self.profileImage.image = [self resizeImage:editedImage withSize:size];
     self.profileImage.image = editedImage;
+    
+    // Make profile image circular
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
     
     // Set profile image of current user
     PFUser *user = [PFUser currentUser];

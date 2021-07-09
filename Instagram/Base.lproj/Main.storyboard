@@ -129,7 +129,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-A8-oos">
-                                <rect key="frame" x="200" y="114" width="152.5" height="36"/>
+                                <rect key="frame" x="182.5" y="114" width="152.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="s6N-FA-Ztt"/>
                                 </constraints>
@@ -138,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho9-Kw-I8S">
-                                <rect key="frame" x="200.5" y="158" width="151" height="30"/>
+                                <rect key="frame" x="183.5" y="158" width="151" height="30"/>
                                 <state key="normal" title="Update Profile Picture"/>
                                 <connections>
                                     <action selector="onTapUpdateImage:" destination="HJq-0s-xEW" eventType="touchUpInside" id="NkN-9w-ZAK"/>
@@ -151,7 +151,7 @@
                             <constraint firstItem="9pc-A8-oos" firstAttribute="top" secondItem="fHw-dS-ynn" secondAttribute="top" constant="58" id="4th-BW-DU8"/>
                             <constraint firstItem="ho9-Kw-I8S" firstAttribute="centerX" secondItem="9pc-A8-oos" secondAttribute="centerX" id="Egw-Gk-Glb"/>
                             <constraint firstItem="PRN-bc-AMT" firstAttribute="top" secondItem="fHw-dS-ynn" secondAttribute="top" constant="40" id="GQK-Ak-RA1"/>
-                            <constraint firstItem="9pc-A8-oos" firstAttribute="centerX" secondItem="MOI-rr-FMw" secondAttribute="centerX" multiplier="1:0.75" id="HDN-oz-ofj"/>
+                            <constraint firstItem="9pc-A8-oos" firstAttribute="centerX" secondItem="MOI-rr-FMw" secondAttribute="centerX" multiplier="1:0.8" id="HDN-oz-ofj"/>
                             <constraint firstItem="PRN-bc-AMT" firstAttribute="centerX" secondItem="MOI-rr-FMw" secondAttribute="centerX" multiplier="1:1.9" id="TBU-Rl-kJ9"/>
                             <constraint firstItem="fHw-dS-ynn" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ho9-Kw-I8S" secondAttribute="bottom" constant="100" id="hZp-b6-IaK"/>
                             <constraint firstItem="ho9-Kw-I8S" firstAttribute="top" secondItem="9pc-A8-oos" secondAttribute="bottom" constant="8" id="m3h-Lo-xTx"/>
