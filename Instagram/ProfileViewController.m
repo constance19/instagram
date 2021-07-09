@@ -7,6 +7,7 @@
 
 #import "ProfileViewController.h"
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -61,6 +62,19 @@
     CGSize size = CGSizeMake(300, 300);
     self.profileImage.image = [self resizeImage:editedImage withSize:size];
     self.profileImage.image = editedImage;
+    
+    // Set profile image of current user
+    PFUser *user = [PFUser currentUser];
+    PFFileObject *profileImageFile = [Post getPFFileFromImage:editedImage];
+    user[@"profileImage"] = profileImageFile;
+    NSLog(@"%@", user[@"profileImage"]);
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error updating profile image", error.localizedDescription);
+        } else {
+            NSLog(@"Successfully updated profile image!");
+        }
+    }];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];

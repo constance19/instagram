@@ -106,8 +106,26 @@
     if (user != nil) {
         // User found! update username label with username
         cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.username];
+        
+        // make user's profile image circular
+        cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.height /2;
+        cell.profileImage.layer.masksToBounds = YES;
+        cell.profileImage.layer.borderWidth = 0;
+        
+        // set user's profile image
+        PFFileObject *profileImageFile = user[@"profileImage"];
+        if (profileImageFile) {
+            [profileImageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@"Error retrieving image", error.localizedDescription);
+                } else {
+                    cell.profileImage.image = [UIImage imageWithData:data];
+                }
+            }];
+        }
+        
     } else {
-            // No user found, set default username
+        // No user found, set default username
         cell.usernameLabel.text = @"@Default_Name";
     }
     return cell;

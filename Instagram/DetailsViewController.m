@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end
 
@@ -48,6 +49,18 @@
     // set post image
     self.postImage.file = self.post.image;
     [self.postImage loadInBackground];
+    
+    // make profile image view circular
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
+    
+    // set profile image
+    self.profileImage.layer.cornerRadius = 10;
+    PFFileObject *profileImageFile = user[@"profileImage"];
+    NSURL *url = [NSURL URLWithString: profileImageFile.url];
+    NSData *fileData = [NSData dataWithContentsOfURL: url];
+    self.profileImage.image = [[UIImage alloc] initWithData:fileData];
     
     // set caption label
     self.captionLabel.text = self.post.caption;
