@@ -46,6 +46,20 @@ Here's a walkthrough of implemented user stories:
 
 ![instax_signup_login_logout_persist](signup-login-logout-persist.gif) / ! [](signup-login-logout-persist.gif)
 
+2. User feed: pull to refresh, infinite scrolling, segues to profile page through username and profile picture
+![instax_feed_refresh_infinite_profile](refresh-feed-profile-infinite-optimized.gif) / ! [](refresh-feed-profile-infinite-optimized.gif)
+
+3. Details view of post: like/unlike, segues to profile page through username and profile picture
+![instax_details_username_like](detail-profile-like.gif) / ! [](detail-profile-like.gif)
+
+4. Posting a photo and caption with progress HUD (select from photo library using simulator)  
+![instax_compose_progress](compose-progressHUD-feed.gif) / ! [](compose-progressHUD-feed.gif)
+
+5. Profile tab, changing profile picture, various segues to profile page
+![instax_profile](profile-tab-picture-links.gif) / ! [](profile-tab-picture-links.gif)
+
+6. Overview of core features (simplified due to file size constraints)
+![instax_profile](instax-overview-optimized.gif) / ! [](instax-overview-optimized.gif)
 
 GIF created with [EzGif](https://ezgif.com/video-to-gif).
 
