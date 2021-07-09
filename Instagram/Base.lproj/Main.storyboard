@@ -129,11 +129,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-A8-oos">
-                                <rect key="frame" x="198.5" y="114" width="155" height="36"/>
+                                <rect key="frame" x="200" y="114" width="152.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="s6N-FA-Ztt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -276,7 +276,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fb7-AP-1jC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="IFe-Rd-SN7">
                     <connections>
-                        <segue destination="HJq-0s-xEW" kind="show" id="k0I-CO-rYT"/>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="usernameProfileSegue" id="k0I-CO-rYT"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -369,14 +369,18 @@
                                     <constraint firstAttribute="height" constant="414" id="gBg-Cf-wcJ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-zc-Mlx">
-                                <rect key="frame" x="20" y="81" width="91" height="21"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-zc-Mlx">
+                                <rect key="frame" x="20" y="81" width="93" height="21"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5Pt-On-qWf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9K6-YQ-0Z2" appends="YES" id="H0r-vT-2mj"/>
+                                </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucz-L5-Dfc">
                                 <rect key="frame" x="374" y="81" width="20" height="21"/>
@@ -398,8 +402,14 @@
                                     <action selector="onTapLike:" destination="wsx-ef-ZSL" eventType="touchUpInside" id="CJQ-TG-fI5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-xv-lmO">
-                                <rect key="frame" x="20" y="610" width="374" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJc-AQ-rEb">
+                                <rect key="frame" x="20" y="588" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-xv-lmO">
+                                <rect key="frame" x="70" y="588" width="324" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -408,17 +418,19 @@
                         <viewLayoutGuide key="safeArea" id="aOY-A4-err"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QSM-xv-lmO" firstAttribute="top" secondItem="fh4-Op-ILq" secondAttribute="bottom" constant="30" id="5cm-qL-qfu"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="trailing" secondItem="aOY-A4-err" secondAttribute="trailing" id="7Ep-lV-Jyn"/>
+                            <constraint firstItem="uJc-AQ-rEb" firstAttribute="top" secondItem="fh4-Op-ILq" secondAttribute="bottom" constant="8" id="8x8-Em-sig"/>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="top" secondItem="uJc-AQ-rEb" secondAttribute="top" id="Aem-Gy-sjc"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="leading" secondItem="aOY-A4-err" secondAttribute="leading" id="BCk-za-CEk"/>
                             <constraint firstItem="aOY-A4-err" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fh4-Op-ILq" secondAttribute="trailing" constant="100" id="ORP-5B-ZZ6"/>
-                            <constraint firstItem="aOY-A4-err" firstAttribute="trailing" secondItem="QSM-xv-lmO" secondAttribute="trailing" constant="20" id="VKh-GH-Pvx"/>
+                            <constraint firstItem="uJc-AQ-rEb" firstAttribute="leading" secondItem="fh4-Op-ILq" secondAttribute="leading" id="PAa-y9-Hn4"/>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="trailing" secondItem="Ucz-L5-Dfc" secondAttribute="trailing" id="QoB-YU-7jJ"/>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="bottom" secondItem="uJc-AQ-rEb" secondAttribute="bottom" id="TCx-8t-BiQ"/>
+                            <constraint firstItem="QSM-xv-lmO" firstAttribute="leading" secondItem="uJc-AQ-rEb" secondAttribute="trailing" constant="8" id="WWU-jG-diq"/>
                             <constraint firstItem="FhO-zc-Mlx" firstAttribute="top" secondItem="aOY-A4-err" secondAttribute="top" constant="25" id="YWr-zJ-cnM"/>
                             <constraint firstItem="FhO-zc-Mlx" firstAttribute="leading" secondItem="aOY-A4-err" secondAttribute="leading" constant="20" id="YdB-XC-X94"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="top" secondItem="FhO-zc-Mlx" secondAttribute="bottom" constant="18" id="b5I-j7-EaL"/>
-                            <constraint firstItem="aOY-A4-err" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QSM-xv-lmO" secondAttribute="bottom" constant="20" id="eJZ-YB-81s"/>
                             <constraint firstItem="fh4-Op-ILq" firstAttribute="top" secondItem="dRK-7v-xVZ" secondAttribute="bottom" constant="16" id="gyp-MN-U2I"/>
-                            <constraint firstItem="QSM-xv-lmO" firstAttribute="leading" secondItem="fh4-Op-ILq" secondAttribute="leading" id="hoz-Gx-PUN"/>
                             <constraint firstItem="dRK-7v-xVZ" firstAttribute="top" secondItem="Ucz-L5-Dfc" secondAttribute="bottom" constant="18" id="i42-fe-23i"/>
                             <constraint firstItem="fh4-Op-ILq" firstAttribute="leading" secondItem="FhO-zc-Mlx" secondAttribute="leading" id="jAm-rD-90T"/>
                             <constraint firstItem="aOY-A4-err" firstAttribute="trailing" secondItem="Ucz-L5-Dfc" secondAttribute="trailing" constant="20" id="xTa-2s-jS5"/>
@@ -431,13 +443,19 @@
                         <outlet property="captionLabel" destination="QSM-xv-lmO" id="FAZ-hF-RWs"/>
                         <outlet property="likeButton" destination="fh4-Op-ILq" id="QJE-U6-4tJ"/>
                         <outlet property="postImage" destination="dRK-7v-xVZ" id="Z2T-wZ-bUW"/>
-                        <outlet property="timestampLabel" destination="Ucz-L5-Dfc" id="CF5-kd-kxY"/>
+                        <outlet property="timestampLabel" destination="Ucz-L5-Dfc" id="WhY-T3-e5q"/>
+                        <outlet property="userLabel" destination="uJc-AQ-rEb" id="lXt-mj-F9o"/>
                         <outlet property="usernameLabel" destination="FhO-zc-Mlx" id="VyT-5l-cX9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Js1-e4-Fzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9K6-YQ-0Z2">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="usernameDetailSegue" id="iQQ-uf-3py"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4022" y="235"/>
+            <point key="canvasLocation" x="4021.739130434783" y="234.375"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0AN-Ds-O4N">
@@ -515,7 +533,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k0I-CO-rYT"/>
+        <segue reference="iQQ-uf-3py"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1280px-Instagram_logo.svg" width="1280" height="457"/>

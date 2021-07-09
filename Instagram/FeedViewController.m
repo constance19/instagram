@@ -8,13 +8,14 @@
 #import "FeedViewController.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
-#import "Parse/Parse.h"
+//#import "Parse/Parse.h"
 #import "PostCell.h"
 #import "DetailsViewController.h"
 #import "ComposeViewController.h"
 #import "DateTools.h"
+#import "ProfileViewController.h"
 
-@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource> // ComposeViewControllerDelegate
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource> // DetailsViewControllerDelegate
 
 @property (nonatomic, strong) NSArray *arrayOfPosts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -160,6 +161,15 @@
             
         DetailsViewController *detailController = [segue destinationViewController];
         detailController.post = post;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"usernameProfileSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.arrayOfPosts[indexPath.row];
+            
+        ProfileViewController *profileController = [segue destinationViewController];
+        profileController.user = post[@"author"];
     }
 }
 

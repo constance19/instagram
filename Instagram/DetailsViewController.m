@@ -7,14 +7,16 @@
 
 #import "DetailsViewController.h"
 #import "DateTools.h"
+#import "ProfileViewController.h"
 @import Parse;
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 
 @end
 
@@ -30,9 +32,11 @@
     if (user != nil) {
         // User found! update username label with username
         self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.username];
+        self.userLabel.text = user.username;
     } else {
             // No user found, set default username
-        self.usernameLabel.text = @"@Default_Name";
+        self.usernameLabel.text = @"@default_name";
+        self.userLabel.text = @"default_name";
     }
     
     // set timestamp label
@@ -87,14 +91,18 @@
         }
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"usernameDetailSegue"]) {
+        Post *post = self.post;
+        ProfileViewController *profileController = [segue destinationViewController];
+        profileController.user = post[@"author"];
+    }
 }
-*/
 
 @end

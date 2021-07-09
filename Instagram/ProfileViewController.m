@@ -20,8 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    PFUser *user = [PFUser currentUser];
-    self.usernameLabel.text = [@"@" stringByAppendingString: user.username];
+    
+    // Segue from username label
+    if (self.user != nil) {
+        self.usernameLabel.text = [@"@" stringByAppendingString: self.user.username];
+        
+    // Profile tab (user's own page)
+    } else {
+        PFUser *user = [PFUser currentUser];
+        self.usernameLabel.text = [@"@" stringByAppendingString: user.username];
+    }
 }
 
 - (IBAction)onTapUpdateImage:(id)sender {
