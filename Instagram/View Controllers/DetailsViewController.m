@@ -111,7 +111,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if ([[segue identifier] isEqualToString:@"usernameDetailSegue"]) {
+    if ([[segue identifier] isEqualToString:@"usernameDetailSegue"] || [[segue identifier] isEqualToString:@"userDetailSegue"] || [[segue identifier] isEqualToString:@"imageDetailSegue"]) {
         Post *post = self.post;
         ProfileViewController *profileController = [segue destinationViewController];
         profileController.user = post[@"author"];

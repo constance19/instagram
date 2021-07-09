@@ -214,18 +214,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="Vdt-sh-lNv">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="Vdt-sh-lNv">
                                                     <rect key="frame" x="11" y="9" width="31" height="31"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="shh-YL-fNg"/>
                                                         <constraint firstAttribute="width" constant="31" id="wNz-0W-iJA"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Q7T-0U-DdC" appends="YES" id="Z4m-wh-9i7"/>
+                                                    </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQI-nT-ibp">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQI-nT-ibp">
                                                     <rect key="frame" x="14" y="468" width="78" height="15"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="9Zh-7D-GgG" appends="YES" id="bx7-k1-tA3"/>
+                                                    </connections>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-LC-g9o">
                                                     <rect key="frame" x="100" y="468" width="59" height="15"/>
@@ -299,6 +307,16 @@
                         <segue destination="HJq-0s-xEW" kind="show" identifier="usernameProfileSegue" id="k0I-CO-rYT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="9Zh-7D-GgG">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="userProfileSegue" id="3GJ-AR-gpM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Q7T-0U-DdC">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="imageProfileSegue" id="9HV-Y0-goY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2876.811594202899" y="-225"/>
         </scene>
@@ -310,23 +328,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YoE-ux-H9w">
-                                <rect key="frame" x="20" y="76" width="374" height="214"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YoE-ux-H9w">
+                                <rect key="frame" x="20" y="76" width="374" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="214" id="qP4-La-a33"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-KN-H2o">
-                                <rect key="frame" x="120" y="157.5" width="174" height="22"/>
-                                <state key="normal" title="Take / Select Photo" image="plus.circle.fill" catalog="system">
-                                    <color key="titleColor" red="0.034483509959999999" green="0.033707968909999997" blue="0.047254739349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTapPhoto:" destination="jC9-d7-zyB" eventType="touchUpInside" id="nh4-DH-naQ"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oOq-ip-P4a">
-                                <rect key="frame" x="20" y="327" width="374" height="160"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oOq-ip-P4a">
+                                <rect key="frame" x="20" y="501" width="374" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="r2A-Ms-NzV"/>
@@ -335,6 +344,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-KN-H2o">
+                                <rect key="frame" x="121" y="252" width="172" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="Take / Select Photo" image="plus.circle.fill" catalog="system">
+                                    <color key="titleColor" red="0.034483509959999999" green="0.033707968909999997" blue="0.047254739349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapPhoto:" destination="jC9-d7-zyB" eventType="touchUpInside" id="nh4-DH-naQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="quk-oY-1gC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -409,24 +428,32 @@
                                     <action selector="onTapLike:" destination="wsx-ef-ZSL" eventType="touchUpInside" id="CJQ-TG-fI5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJc-AQ-rEb">
-                                <rect key="frame" x="20" y="588" width="42" height="21"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJc-AQ-rEb">
+                                <rect key="frame" x="20" y="588" width="78" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="g4q-eQ-fMP" appends="YES" id="urp-E0-5Pg"/>
+                                </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-xv-lmO">
-                                <rect key="frame" x="70" y="588" width="324" height="21"/>
+                                <rect key="frame" x="106" y="588" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-CK-nKI">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-CK-nKI">
                                 <rect key="frame" x="20" y="70" width="42" height="42"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="L7c-1Y-jvZ"/>
                                     <constraint firstAttribute="height" constant="42" id="Trz-xh-E73"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3cQ-FA-0o5" appends="YES" id="pNO-3j-i1m"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-zc-Mlx">
                                 <rect key="frame" x="70" y="81" width="93" height="21"/>
@@ -482,6 +509,16 @@
                 <tapGestureRecognizer id="9K6-YQ-0Z2">
                     <connections>
                         <segue destination="HJq-0s-xEW" kind="show" identifier="usernameDetailSegue" id="iQQ-uf-3py"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="g4q-eQ-fMP">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="userDetailSegue" id="GWh-YJ-Rem"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3cQ-FA-0o5">
+                    <connections>
+                        <segue destination="HJq-0s-xEW" kind="show" customClass="imageDetailSegue" id="a22-kq-HH7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -563,7 +600,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k0I-CO-rYT"/>
+        <segue reference="a22-kq-HH7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1280px-Instagram_logo.svg" width="1280" height="457"/>

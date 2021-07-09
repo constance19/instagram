@@ -183,7 +183,7 @@
         detailController.post = post;
     }
     
-    if ([[segue identifier] isEqualToString:@"usernameProfileSegue"]) {
+    if ([[segue identifier] isEqualToString:@"usernameProfileSegue"] || [[segue identifier] isEqualToString:@"userProfileSegue"] || [[segue identifier] isEqualToString:@"imageProfileSegue"]) {
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Post *post = self.arrayOfPosts[indexPath.row];

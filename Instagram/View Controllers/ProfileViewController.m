@@ -22,9 +22,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // make profile image view circular
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
+    
     // Segue from username label
     if (self.user != nil) {
+        // Set username label
         self.usernameLabel.text = [@"@" stringByAppendingString: self.user.username];
+        
+        // Set profile image
+        PFFileObject *profileImageFile = self.user[@"profileImage"];
+        NSURL *url = [NSURL URLWithString: profileImageFile.url];
+        NSData *fileData = [NSData dataWithContentsOfURL: url];
+        self.profileImage.image = [[UIImage alloc] initWithData:fileData];
         
     // Profile tab (user's own page)
     } else {
@@ -32,11 +44,6 @@
         
         // Set username label
         self.usernameLabel.text = [@"@" stringByAppendingString: user.username];
-        
-        // make profile image view circular
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
-        self.profileImage.layer.masksToBounds = YES;
-        self.profileImage.layer.borderWidth = 0;
         
         // Set profile image
         PFFileObject *profileImageFile = user[@"profileImage"];

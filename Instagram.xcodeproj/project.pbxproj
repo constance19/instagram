@@ -117,6 +117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784203992698C247003285F6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7842038726950BE9003285F6 /* FeedViewController.h */,
+				7842038826950BE9003285F6 /* FeedViewController.m */,
+				7842038A2695173B003285F6 /* ComposeViewController.h */,
+				7842038B2695173B003285F6 /* ComposeViewController.m */,
+				7842039326965D90003285F6 /* DetailsViewController.h */,
+				7842039426965D90003285F6 /* DetailsViewController.m */,
+				784203962697A231003285F6 /* ProfileViewController.h */,
+				784203972697A231003285F6 /* ProfileViewController.m */,
+				785D06132694EB4100A02D39 /* ViewController.h */,
+				785D06142694EB4100A02D39 /* ViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		785D06012694EB4100A02D39 = {
 			isa = PBXGroup;
 			children = (
@@ -142,29 +159,20 @@
 		785D060C2694EB4100A02D39 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				784203992698C247003285F6 /* View Controllers */,
 				785D060D2694EB4100A02D39 /* AppDelegate.h */,
 				785D060E2694EB4100A02D39 /* AppDelegate.m */,
 				785D06102694EB4100A02D39 /* SceneDelegate.h */,
 				785D06112694EB4100A02D39 /* SceneDelegate.m */,
-				785D06132694EB4100A02D39 /* ViewController.h */,
-				785D06142694EB4100A02D39 /* ViewController.m */,
-				785D06162694EB4100A02D39 /* Main.storyboard */,
-				784203962697A231003285F6 /* ProfileViewController.h */,
-				784203972697A231003285F6 /* ProfileViewController.m */,
-				7842039326965D90003285F6 /* DetailsViewController.h */,
-				7842039426965D90003285F6 /* DetailsViewController.m */,
-				7842038A2695173B003285F6 /* ComposeViewController.h */,
-				7842038B2695173B003285F6 /* ComposeViewController.m */,
 				7842038D2695322A003285F6 /* Post.h */,
 				7842038E2695322A003285F6 /* Post.m */,
-				7842038726950BE9003285F6 /* FeedViewController.h */,
-				7842038826950BE9003285F6 /* FeedViewController.m */,
 				7842039026962F97003285F6 /* PostCell.h */,
 				7842039126962F97003285F6 /* PostCell.m */,
 				784203842694FD42003285F6 /* LoginViewController.h */,
 				784203852694FD42003285F6 /* LoginViewController.m */,
 				785D06192694EB4200A02D39 /* Assets.xcassets */,
 				785D061B2694EB4200A02D39 /* LaunchScreen.storyboard */,
+				785D06162694EB4100A02D39 /* Main.storyboard */,
 				785D061E2694EB4200A02D39 /* Info.plist */,
 				785D061F2694EB4200A02D39 /* main.m */,
 			);
