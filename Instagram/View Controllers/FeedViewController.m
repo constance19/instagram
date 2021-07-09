@@ -51,6 +51,11 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    // Automatically reload feed
+    [NSTimer scheduledTimerWithTimeInterval:1 repeats:true block:^(NSTimer * _Nonnull timer) {
+        [self loadPosts:20];
+    }];
         
     // Pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];

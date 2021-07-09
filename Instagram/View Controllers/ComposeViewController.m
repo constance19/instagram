@@ -26,15 +26,20 @@
     // Do any additional setup after loading the view.
     
     // Set caption box display
-    self.textView.layer.borderWidth = 1.6f;
+    self.textView.layer.borderWidth = 1.2f;
     self.textView.clipsToBounds = YES;
-    self.textView.layer.cornerRadius = 8.0f;
-    self.textView.layer.borderColor = UIColor.lightGrayColor.CGColor;
+    self.textView.layer.cornerRadius = 3.0f;
+    self.textView.layer.borderColor = UIColor.blackColor.CGColor;
+    
+    // Set image view placeholder display
+    UIColor *myGray = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+    self.postImage.layer.backgroundColor = myGray.CGColor;
     
     // Set placeholder text for caption view
     self.textView.delegate = self;
     self.textView.text = @"Write a caption...";
-    self.textView.textColor = [UIColor lightGrayColor];
+    UIColor *myBlack = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+    self.textView.textColor = myBlack;
     
     // Set button display
     [self.photoButton setFrame:CGRectMake(173, 269, 130, 44)];

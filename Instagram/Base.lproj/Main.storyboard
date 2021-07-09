@@ -320,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="2876.811594202899" y="-225"/>
         </scene>
-        <!--Compose View Controller-->
+        <!--Compose-->
         <scene sceneID="K1Z-QO-mcY">
             <objects>
                 <viewController storyboardIdentifier="ComposeViewController" id="jC9-d7-zyB" customClass="ComposeViewController" sceneMemberID="viewController">
@@ -328,14 +328,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YoE-ux-H9w">
-                                <rect key="frame" x="20" y="76" width="374" height="374"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YoE-ux-H9w">
+                                <rect key="frame" x="57" y="76" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="214" id="qP4-La-a33"/>
+                                    <constraint firstAttribute="width" constant="300" id="4ys-l0-MUa"/>
+                                    <constraint firstAttribute="height" constant="300" id="qP4-La-a33"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-KN-H2o">
+                                <rect key="frame" x="121" y="215" width="172" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <state key="normal" title="Take / Select Photo" image="plus.circle.fill" catalog="system">
+                                    <color key="titleColor" red="0.034483509959999999" green="0.033707968909999997" blue="0.047254739349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapPhoto:" destination="jC9-d7-zyB" eventType="touchUpInside" id="nh4-DH-naQ"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oOq-ip-P4a">
-                                <rect key="frame" x="20" y="501" width="374" height="160"/>
+                                <rect key="frame" x="20" y="406" width="374" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="r2A-Ms-NzV"/>
@@ -344,16 +355,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj8-KN-H2o">
-                                <rect key="frame" x="121" y="252" width="172" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <state key="normal" title="Take / Select Photo" image="plus.circle.fill" catalog="system">
-                                    <color key="titleColor" red="0.034483509959999999" green="0.033707968909999997" blue="0.047254739349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTapPhoto:" destination="jC9-d7-zyB" eventType="touchUpInside" id="nh4-DH-naQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="quk-oY-1gC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -361,15 +362,14 @@
                             <constraint firstItem="quk-oY-1gC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oOq-ip-P4a" secondAttribute="bottom" constant="37" id="2gL-WY-kUg"/>
                             <constraint firstItem="oOq-ip-P4a" firstAttribute="top" secondItem="YoE-ux-H9w" secondAttribute="bottom" constant="37" id="309-5b-5ag"/>
                             <constraint firstItem="Jj8-KN-H2o" firstAttribute="centerX" secondItem="BMG-6f-Ik0" secondAttribute="centerX" id="J7l-nf-fBg"/>
-                            <constraint firstItem="Jj8-KN-H2o" firstAttribute="centerY" secondItem="BMG-6f-Ik0" secondAttribute="centerY" multiplier="1:2.5" id="M1C-ks-kOp"/>
-                            <constraint firstItem="YoE-ux-H9w" firstAttribute="leading" secondItem="quk-oY-1gC" secondAttribute="leading" constant="20" id="Szm-p2-sWe"/>
+                            <constraint firstItem="Jj8-KN-H2o" firstAttribute="centerY" secondItem="YoE-ux-H9w" secondAttribute="centerY" multiplier="1:2.5" constant="135.59999999999999" id="M1C-ks-kOp"/>
                             <constraint firstItem="YoE-ux-H9w" firstAttribute="top" secondItem="BMG-6f-Ik0" secondAttribute="topMargin" constant="20" id="Vpg-Sl-Rb1"/>
-                            <constraint firstItem="quk-oY-1gC" firstAttribute="trailing" secondItem="YoE-ux-H9w" secondAttribute="trailing" constant="20" id="c2V-uM-EHf"/>
                             <constraint firstItem="quk-oY-1gC" firstAttribute="trailing" secondItem="oOq-ip-P4a" secondAttribute="trailing" constant="20" id="f1d-XM-5at"/>
                             <constraint firstItem="oOq-ip-P4a" firstAttribute="leading" secondItem="quk-oY-1gC" secondAttribute="leading" constant="20" id="gyw-FG-XtD"/>
+                            <constraint firstItem="YoE-ux-H9w" firstAttribute="centerX" secondItem="BMG-6f-Ik0" secondAttribute="centerX" id="xtx-rY-5Y0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zQw-VH-v6h">
+                    <navigationItem key="navigationItem" title="Compose" id="zQw-VH-v6h">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="xCH-sa-VOy">
                             <connections>
                                 <action selector="onTapCancel:" destination="jC9-d7-zyB" id="QES-cC-dhk"/>
@@ -518,7 +518,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="3cQ-FA-0o5">
                     <connections>
-                        <segue destination="HJq-0s-xEW" kind="show" customClass="imageDetailSegue" id="a22-kq-HH7"/>
+                        <segue destination="HJq-0s-xEW" kind="show" identifier="imageDetailSegue" id="a22-kq-HH7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -528,6 +528,7 @@
         <scene sceneID="0AN-Ds-O4N">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" id="tgI-2S-Qxg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GRF-8L-h8l"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lKF-1Z-zil">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
