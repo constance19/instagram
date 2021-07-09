@@ -106,6 +106,7 @@
     if (user != nil) {
         // User found! update username label with username
         cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.username];
+        cell.userLabel.text = user.username;
         
         // make user's profile image circular
         cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.height /2;
@@ -127,6 +128,7 @@
     } else {
         // No user found, set default username
         cell.usernameLabel.text = @"@Default_Name";
+        cell.userLabel.text = @"Default_Name";
     }
     return cell;
 }
